@@ -7,7 +7,7 @@ import { Toaster } from "sonner"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "PM Requirements Generator - AI-Powered Product Management Tool",
+  title: "Product Requirements Generator - AI-Powered Product Management Tool",
   description:
     "Generate feature requirements, user stories, and acceptance criteria with AI. Perfect for product managers and development teams.",
   keywords: "product management, requirements, user stories, acceptance criteria, AI, product manager tools",

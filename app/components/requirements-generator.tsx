@@ -86,48 +86,56 @@ ${generatedContent.acceptanceCriteria.map((criteria, i) => `${i + 1}. ${criteria
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <Card className="mb-8">
+    <div className="w-full">
+      <Card className="mb-6 sm:mb-8">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
             <Sparkles className="h-5 w-5 text-yellow-500" />
             Generate Requirements
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-sm sm:text-base">
             Describe your feature idea and provide context to generate comprehensive requirements
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-4 sm:space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="feature-description">Feature Description *</Label>
+            <Label htmlFor="feature-description" className="text-sm sm:text-base">
+              Feature Description *
+            </Label>
             <Textarea
               id="feature-description"
               placeholder="Describe the feature you want to build. Be as detailed as possible about what it should do and how users will interact with it..."
               value={featureDescription}
               onChange={(e) => setFeatureDescription(e.target.value)}
               rows={4}
-              className="resize-none"
+              className="resize-none text-sm sm:text-base"
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="project-context">Project Context (Optional)</Label>
+              <Label htmlFor="project-context" className="text-sm sm:text-base">
+                Project Context (Optional)
+              </Label>
               <Input
                 id="project-context"
                 placeholder="e.g., E-commerce platform, SaaS dashboard, Mobile app..."
                 value={projectContext}
                 onChange={(e) => setProjectContext(e.target.value)}
+                className="text-sm sm:text-base"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="target-audience">Target Audience (Optional)</Label>
+              <Label htmlFor="target-audience" className="text-sm sm:text-base">
+                Target Audience (Optional)
+              </Label>
               <Input
                 id="target-audience"
                 placeholder="e.g., Small business owners, Developers, End consumers..."
                 value={targetAudience}
                 onChange={(e) => setTargetAudience(e.target.value)}
+                className="text-sm sm:text-base"
               />
             </div>
           </div>
@@ -135,7 +143,7 @@ ${generatedContent.acceptanceCriteria.map((criteria, i) => `${i + 1}. ${criteria
           <Button
             onClick={handleGenerate}
             disabled={isGenerating || !featureDescription.trim()}
-            className="w-full"
+            className="w-full text-sm sm:text-base"
             size="lg"
           >
             {isGenerating ? (
@@ -153,8 +161,9 @@ ${generatedContent.acceptanceCriteria.map((criteria, i) => `${i + 1}. ${criteria
         </CardContent>
       </Card>
 
+      {/* Results card remains the same but ensure consistent width */}
       {generatedContent && (
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
