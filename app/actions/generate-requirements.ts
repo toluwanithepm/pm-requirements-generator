@@ -1,7 +1,12 @@
 "use server"
 
 import { generateObject } from "ai"
-import { openai } from "@ai-sdk/openai"
+import { groq } from "@ai-sdk/groq"
+// If you want to use OpenAI instead, make these changes:
+// 1. Replace the import:
+// \`\`\`typescript
+// import { openai } from "@ai-sdk/openai"
+// \`\`\`
 import { z } from "zod"
 
 const RequirementsSchema = z.object({
@@ -58,10 +63,19 @@ Make sure all generated content is:
 `
 
     const result = await generateObject({
-      model: openai("gpt-4o"),
+      model: groq("llama-3.1-70b-versatile"),
       schema: RequirementsSchema,
       prompt,
     })
+    // If you want to use OpenAI instead, make these changes:
+    // 2. Replace the model in generateObject:
+    // \`\`\`typescript
+    // const result = await generateObject({
+    //   model: openai("gpt-4o"),
+    //   schema: RequirementsSchema,
+    //   prompt,
+    // })
+    // \`\`\`
 
     return {
       success: true,
@@ -75,3 +89,5 @@ Make sure all generated content is:
     }
   }
 }
+// If you want to use OpenAI instead, make these changes:
+// 3. Update your environment variable in Vercel to `OPENAI_API_KEY` instead of `XAI_API_KEY`
