@@ -63,7 +63,7 @@ Make sure all generated content is:
 `
 
     const result = await generateObject({
-      model: groq("llama-3.1-70b-versatile"),
+      model: groq("llama-3.3-70b-versatile"),
       schema: RequirementsSchema,
       prompt,
     })
