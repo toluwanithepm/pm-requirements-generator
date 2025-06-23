@@ -1,7 +1,7 @@
 "use server"
 
 import { generateObject } from "ai"
-import { xai } from "@ai-sdk/xai"
+import { openai } from "@ai-sdk/openai"
 import { z } from "zod"
 
 const RequirementsSchema = z.object({
@@ -58,7 +58,7 @@ Make sure all generated content is:
 `
 
     const result = await generateObject({
-      model: xai("grok-2-1212"),
+      model: openai("gpt-4o"),
       schema: RequirementsSchema,
       prompt,
     })
