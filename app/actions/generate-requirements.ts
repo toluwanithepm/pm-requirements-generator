@@ -58,7 +58,7 @@ Make sure all generated content is:
 `
 
     const result = await generateObject({
-      model: xai("grok-beta"),
+      model: xai("grok-2-1212"),
       schema: RequirementsSchema,
       prompt,
     })
